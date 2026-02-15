@@ -6,11 +6,9 @@ const ExploreButton = () => {
   return (
     <button
       type="button"
-      id="explore-btn"
-      className="mt-7 mx-auto"
-      onClick={() => console.log("click")}
+      className=" border-dark-200 bg-dark-100 flex w-fit cursor-pointer  rounded-full border px-8 py-3.5 max-sm:w-full text-center mt-7 mx-auto"
     >
-      <a href="#events">
+      <a href="#events" className="flex-center gap-2 text-center w-full">
         Explore Events
         <Image
           src="/icons/arrow-down.svg"

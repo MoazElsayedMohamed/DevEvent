@@ -19,27 +19,31 @@ const EventCard = ({
   time,
 }: EventCardProps) => {
   return (
-    <Link href={`/events/${slug}`} id="event-card">
+    <Link
+      href={`/events/${slug}`}
+      id="event-card"
+      className="flex flex-col gap-3"
+    >
       <Image
         src={image}
         alt={title}
         width={410}
         height={300}
-        className="poster"
+        className="h-75 w-full rounded-lg object-cover"
       />
       <div className="flex flex-row gap-2">
         <Image src="/icons/pin.svg" width={14} height={14} alt="location" />
-        <p>{location}</p>
+        <p className="text-light-200 text-sm font-light">{location}</p>
       </div>
-      <p className="title">{title}</p>
-      <div className="datetime">
-        <div>
+      <p className="text-[20px] font-semibold line-clamp-1">{title}</p>
+      <div className="text-light-200 flex flex-row flex-wrap items-center gap-4">
+        <div className="flex flex-row gap-2">
           <Image src="/icons/calendar.svg" width={14} alt="date" height={14} />
-          <p>{date}</p>
+          <p className="text-light-200 text-sm font-light">{date}</p>
         </div>
-        <div>
+        <div className="flex flex-row gap-2">
           <Image src="/icons/clock.svg" width={14} alt="time" height={14} />
-          <p>{time}</p>
+          <p className="text-light-200 text-sm font-light">{time}</p>
         </div>
       </div>
     </Link>

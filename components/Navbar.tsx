@@ -3,9 +3,9 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <header>
-      <nav>
-        <Link href="/" className="logo">
+    <header className="glass sticky top-0 z-50">
+      <nav className="flex flex-row justify-between mx-auto container sm:px-10 px-5 py-4">
+        <Link href="/" className="flex flex-row items-center gap-2">
           <Image
             src="/icons/logo.png"
             alt="DevEvent Logo"
@@ -13,7 +13,7 @@ const Navbar = () => {
             height={24}
           />
         </Link>
-        <ul>
+        <ul className="flex flex-row items-center gap-6">
           <Link href="/">Home</Link>
           <Link href="/">Events</Link>
           <Link href="/">Create Events</Link>
