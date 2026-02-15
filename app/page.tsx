@@ -11,15 +11,19 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const page = () => {
   const [events, setEvents] = useState<IEvent[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
+        setIsLoading(true);
         const response = await fetch(`${BASE_URL}/api/events`);
         const { events } = await response.json();
         setEvents(events || []);
       } catch (error) {
         console.error("Error fetching events:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -35,7 +39,7 @@ const page = () => {
         Hacathons, Meetups, and Conferences , All in one place
       </p>
       <ExploreButton />
-      <FeaturedEvents events={events} />
+      <FeaturedEvents events={events} isLoading={isLoading} />
     </section>
   );
 };
