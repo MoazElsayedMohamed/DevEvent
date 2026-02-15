@@ -15,8 +15,7 @@ const Navbar = () => {
         </Link>
         <ul className="flex flex-row items-center gap-6">
           <Link href="/">Home</Link>
-          <Link href="/">Events</Link>
-          <Link href="/">Create Events</Link>
+          <Link href="#events">Events</Link>
         </ul>
       </nav>
     </header>

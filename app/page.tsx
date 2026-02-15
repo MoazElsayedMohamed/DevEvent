@@ -31,15 +31,17 @@ const page = () => {
   }, []);
 
   return (
-    <section>
-      <h1 className="text-center uppercase text-gradient text-6xl font-semibold max-sm:text-4xl">
+    <section className="animate-fade-in-up ">
+      <h1 className="text-center uppercase text-gradient text-6xl font-semibold max-sm:text-4xl ">
         the hub for every dev <br /> event you can't miss
       </h1>
       <p className="text-center mt-5">
         Hacathons, Meetups, and Conferences , All in one place
       </p>
       <ExploreButton />
-      <FeaturedEvents events={events} isLoading={isLoading} />
+      {events.length > 0 && (
+        <FeaturedEvents events={events} isLoading={isLoading} />
+      )}
     </section>
   );
 };
