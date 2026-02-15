@@ -91,22 +91,6 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-@utility flex-center {
-  @apply flex items-center justify-center;
-}
-
-@utility text-gradient {
-  @apply to-blue bg-linear-to-b from-white via-white bg-clip-text font-semibold text-transparent;
-}
-
-@utility glass {
-  @apply bg-[#12121280]/50 rounded-md bg-clip-padding backdrop-filter backdrop-blur-xl border-b border-border-dark;
-}
-
-@utility card-shadow {
-  box-shadow: 0px 4px 40px 0px #00000066;
-}
-
 @layer base {
   html {
     @apply scroll-smooth;
@@ -122,6 +106,10 @@
 
   main {
     @apply mx-auto container flex flex-col sm:px-10 px-5 py-10;
+  }
+
+  .card-shadow {
+    box-shadow: 0px 4px 40px 0px #00000066;
   }
 
   @keyframes slideUp {
@@ -146,12 +134,16 @@
     }
   }
 
-  /* Define custom animations */
-  @utility animate-slide-up {
+  /* Custom utility classes - NOT nested */
+  .animate-slide-up {
     animation: slideUp 0.8s ease-out;
   }
 
-  @utility animate-fade-in-up {
+  .animate-fade-in-up {
     animation: fadeInUp 1s ease-out;
+  }
+
+  .animate-slide-up-delay {
+    animation: slideUp 1s ease-out 0.2s both;
   }
 }

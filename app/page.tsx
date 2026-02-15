@@ -32,7 +32,7 @@ const page = () => {
 
   return (
     <section className="animate-fade-in-up ">
-      <h1 className="text-center uppercase text-gradient text-6xl font-semibold max-sm:text-4xl ">
+      <h1 className="text-center uppercase to-blue bg-linear-to-b from-white via-white bg-clip-text font-semibold text-transparent text-6xl font-semibold max-sm:text-4xl ">
         the hub for every dev <br /> event you can't miss
       </h1>
       <p className="text-center mt-5">

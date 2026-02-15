@@ -67,7 +67,7 @@ const EventDetailedPage = async ({
   return (
     <section id="event">
       <div className="flex w-2/3 flex-col items-start gap-4 max-lg:w-full mb-10">
-        <h1 className="text-gradient text-6xl font-semibold max-sm:text-4xl">
+        <h1 className="to-blue bg-linear-to-b from-white via-white bg-clip-text font-semibold text-transparent text-6xl max-sm:text-4xl">
           {title}
         </h1>
         <p className="mt-2 text-light-100 text-lg max-sm:text-sm">

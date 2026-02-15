@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <header className="glass sticky top-0 z-50">
+    <header className="bg-[#12121280]/50 rounded-md bg-clip-padding backdrop-filter backdrop-blur-xl border-b border-border-dark sticky top-0 z-50">
       <nav className="flex flex-row justify-between mx-auto container sm:px-10 px-5 py-4">
         <Link href="/" className="flex flex-row items-center gap-2">
           <Image
