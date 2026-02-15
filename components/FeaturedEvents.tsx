@@ -22,7 +22,7 @@ const FeaturedEvents = ({
             <li key={event.title} className="list-none">
               {isLoading ? (
                 Array.from({ length: 5 }).map((_, i) => (
-                  <Card className="w-full">
+                  <Card key={i} className="w-full">
                     <CardHeader className="space-y-2">
                       <Skeleton className="h-4 w-2/3" />
                       <Skeleton className="h-4 w-1/2" />

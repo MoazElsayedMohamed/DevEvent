@@ -11,6 +11,7 @@ import { IEvent } from "@/database";
 import { getSimilarEventsBySlug } from "@/lib/actions/events.actions";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 const EventDetailedPage = async ({
@@ -65,50 +66,52 @@ const EventDetailedPage = async ({
   const similarEvents: IEvent[] = await getSimilarEventsBySlug(slug);
 
   return (
-    <section id="event">
-      <div className="flex w-2/3 flex-col items-start gap-4 max-lg:w-full mb-10">
-        <h1 className="to-blue bg-linear-to-b from-white via-white bg-clip-text font-semibold text-transparent text-6xl max-sm:text-4xl">
-          {title}
-        </h1>
-        <p className="mt-2 text-light-100 text-lg max-sm:text-sm">
-          {description}
-        </p>
-      </div>
-      <div className="flex w-full flex-col lg:flex-row gap-12 items-start mt-12 max-lg:items-center">
-        <div className="flex flex-2 flex-col gap-8 max-lg:w-full">
-          <Image
-            src={image}
-            alt="Event Banner"
-            width={800}
-            height={800}
-            className="max-h-114.25 w-full rounded-lg object-cover"
-          />
-          <EventOverview overview={overview} />
-          <EventDetails
-            date={date}
-            time={time}
-            audience={audience}
-            location={location}
-            mode={mode}
-          />
-          <EventAgenda agendaItems={agenda} />
-          <EventOrganizer organizer={organizer} />
-          <EventTags tags={tags} />
+    <Suspense fallback={<p>Loading event details...</p>}>
+      <section id="event">
+        <div className="flex w-2/3 flex-col items-start gap-4 max-lg:w-full mb-10">
+          <h1 className="to-blue bg-linear-to-b from-white via-white bg-clip-text font-semibold text-transparent text-6xl max-sm:text-4xl">
+            {title}
+          </h1>
+          <p className="mt-2 text-light-100 text-lg max-sm:text-sm">
+            {description}
+          </p>
         </div>
-        <EventBookings bookings={bookings} />
-      </div>
-      <div className="flex w-full flex-col gap-4 pt-20">
-        <h2 className="font-schibsted-grotesk text-2xl font-bold">
-          Similar Events
-        </h2>
-        <div className=" grid md:grid-cols-3 gap-10 sm:grid-cols-2 grid-cols-1">
-          {similarEvents.length > 0 &&
-            similarEvents.map((similarEvent: IEvent) => {
-              return <EventCard {...similarEvent} key={similarEvent.title} />;
-            })}
+        <div className="flex w-full flex-col lg:flex-row gap-12 items-start mt-12 max-lg:items-center">
+          <div className="flex flex-2 flex-col gap-8 max-lg:w-full">
+            <Image
+              src={image}
+              alt="Event Banner"
+              width={800}
+              height={800}
+              className="max-h-114.25 w-full rounded-lg object-cover"
+            />
+            <EventOverview overview={overview} />
+            <EventDetails
+              date={date}
+              time={time}
+              audience={audience}
+              location={location}
+              mode={mode}
+            />
+            <EventAgenda agendaItems={agenda} />
+            <EventOrganizer organizer={organizer} />
+            <EventTags tags={tags} />
+          </div>
+          <EventBookings bookings={bookings} />
         </div>
-      </div>
-    </section>
+        <div className="flex w-full flex-col gap-4 pt-20">
+          <h2 className="font-schibsted-grotesk text-2xl font-bold">
+            Similar Events
+          </h2>
+          <div className=" grid md:grid-cols-3 gap-10 sm:grid-cols-2 grid-cols-1">
+            {similarEvents.length > 0 &&
+              similarEvents.map((similarEvent: IEvent) => {
+                return <EventCard {...similarEvent} key={similarEvent.title} />;
+              })}
+          </div>
+        </div>
+      </section>
+    </Suspense>
   );
 };
 
