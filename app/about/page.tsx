@@ -13,7 +13,7 @@ const About = () => {
           meaningful connections in the ever-evolving world of technology.
         </p>
       </div>
-      <div className="flex mt-20 justify-between h-64">
+      <div className="flex mt-20 lg:flex-row flex-col gap-8 items-center lg:justify-between lg:h-64">
         <div>
           <h2 className="font-schibsted-grotesk text-2xl font-bold">
             Event Statistics
@@ -38,7 +38,7 @@ const About = () => {
           className="object-cover rounded-lg"
         />
       </div>
-      <div className="mt-20 flex justify-between">
+      <div className="mt-20 flex lg:flex-row flex-col gap-8 items-center lg:justify-between">
         <div className="pe-8">
           <h2 className="font-schibsted-grotesk text-2xl font-bold">
             Why we attend events
@@ -74,7 +74,7 @@ const About = () => {
           className="object-cover rounded-lg"
         />
       </div>
-      <div className="mt-20 flex justify-between">
+      <div className="mt-20 flex lg:flex-row flex-col gap-8 items-center lg:justify-between">
         <div className="pe-8">
           <h2 className="font-schibsted-grotesk text-2xl font-bold">
             Technologies We Cover
